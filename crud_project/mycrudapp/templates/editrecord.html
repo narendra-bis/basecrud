@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/editrecord_styles.css' %}">
+
+
+<!------ Include the above in your HEAD tag ---------->
+{% block contents %}
+
+ <div class="container">
+ <!---heading---->
+     <header class="heading">Employee Update Form </header><hr></hr>
+	<!---Form starting----> 
+	<div class="row ">
+	 <!--- For Name---->
+	 <form method="POST" action="/update/{{ employee.id }}">
+	 	{% csrf_token %}
+         <div class="col-sm-10">
+             <div class="row">
+			     <div class="col-xs-4">
+          	         <label class="firstname">Employee Id :</label> </div>
+		         <div class="col-xs-8">
+		             <input type="text" name="eid" id="eid" value="{{ employee.eid }}" class="form-control ">
+             </div>
+		      </div>
+		 </div>
+		 
+		 
+         <div class="col-sm-10">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Employee Name :</label></div>
+				<div class ="col-xs-8">	 
+		             <input type="text" name="ename" id="ename" value="{{ employee.ename }}" class="form-control last">
+                </div>
+		     </div>
+		 </div>
+     <!-----For email---->
+		 <div class="col-sm-10">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>	 
+			          <input type="email" name="eemail"  id="eemail" value="{{ employee.eemail }}" class="form-control" >
+		         </div>
+		     </div>
+		 </div>
+	 <!-----For Password and confirm password---->
+          <div class="col-sm-10">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="pass">Contact :</label></div>
+				  <div class="col-xs-8">
+			             <input type="text" name="econtact" id="econtact" value="{{ employee.econtact }}" class="form-control">
+				 </div>
+          </div>
+		  </div>
+		  
+     <!-----------For Phone number-------->
+         <div class="col-sm-10">
+		     <div class ="row">
+                 <div class="col-xs-4 ">
+			       <!-- <label class="gender">Gender:</label> -->
+				 </div>
+			 
+			     <div class="col-xs-4 male">	 
+				     <!-- <input type="radio" name="gender"  id="gender" value="boy">Male</input> -->
+				 </div>
+				 
+				 <div class="col-xs-4 female">
+				    <!--  <input type="radio"  name="gender" id="gender" value="girl" >Female</input> -->
+			     </div>
+			
+		  	 </div>
+		     <div class="col-sm-10">
+		        <!--  <div class="btn btn-warning">Update</div> -->
+		         <input type="submit" name="submit" value="Update">
+		   </div>
+		 </div>
+		 </form>
+	 </div>	 
+		 		 
+		 
+</div>
+
+
+{% endblock %}	 

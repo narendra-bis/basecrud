@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block contents %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/register_styles.css' %}">
+
+
+<div id="login-box">
+  <div class="left">
+    <h1>Sign up</h1>
+    <form method="POST">
+    	{% csrf_token %}
+    <input type="text" name="eid" placeholder="Employee Id" />
+    <input type="text" name="ename" placeholder="Employee Name" />
+    <input type="text" name="eemail" placeholder="E-mail" />
+    <input type="text" name="econtact" placeholder="Contact" />        
+    <input type="submit" name="signup_submit" value="Sign me up" />
+    </form>
+  </div>
+  
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>    
+    
+    <button class="social-signin facebook">Log in with facebook</button>
+    <button class="social-signin twitter">Log in with Twitter</button>
+    <button class="social-signin google">Log in with Google+</button>
+  </div>
+  <div class="or">OR</div>
+</div>
+
+{% endblock %}
